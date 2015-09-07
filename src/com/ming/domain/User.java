@@ -9,7 +9,6 @@ public class User extends SuperObject{
 	
 	private Sex sex;
 	
-	
 	public User(){}
 	
 	public User(String id,String name,Sex sex){
