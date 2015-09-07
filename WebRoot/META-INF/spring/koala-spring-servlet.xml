@@ -16,7 +16,7 @@
 
 	<!-- 启动SpringMVC的注解功能，它会自动注册HandlerMapping、 HandlerAdapter、ExceptionResolver的相关实例 -->
 	<mvc:annotation-driven />
-	<context:component-scan base-package="com.ming.service" />
+	<context:component-scan base-package="com.ming.service"/>
 
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
@@ -29,15 +29,16 @@
 		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 	</bean>
 	
+	<aop:aspectj-autoproxy />
 	<!--  Facade层 拦截器-bean -->
-  <bean id="interceptor" class="com.ming.util.Interceptor" />
+  	<bean id="interceptor" class="com.ming.util.Interceptor" />
  
   
   <!-- Facade层 拦截器(aop) -->
-  <aop:config>
-  		<!-- 切点 -->
+  <!-- <aop:config>
+  		切点
  		<aop:pointcut id="pointcut" expression="execution(* com.ming.service.*.*(..))"/>
 		<aop:advisor advice-ref="interceptor" pointcut-ref="pointcut" /> 
-  </aop:config>
+  </aop:config> -->
   
 </beans>

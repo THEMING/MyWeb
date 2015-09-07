@@ -3,13 +3,12 @@ package com.ming.service;
 import java.util.Map;
 
 import org.apache.commons.collections.MapUtils;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ming.annotation.MyAnnotation;
 import com.ming.domain.User;
 import com.ming.util.JedisUtils;
 
@@ -20,8 +19,16 @@ import redis.clients.jedis.Jedis;
 public class UserService {
 
 	@RequestMapping(value="/addUser",method = RequestMethod.POST)
+	@MyAnnotation
 	public String addUser(@RequestBody User user){
+		test();
 		return user.save();
+	}
+	
+	@MyAnnotation
+	@RequestMapping(value="/test",method = RequestMethod.POST)
+	public void test(){
+		System.out.println("==================test=================");
 	}
 	
 	@RequestMapping(value="/getUser",method = RequestMethod.POST)
