@@ -16,12 +16,12 @@ import com.ming.domain.ErrorObject;
 @Aspect
 public class Interceptor implements MethodInterceptor,InitializingBean,Advice{
 
-	@Override
+//	@Override
 	public void afterPropertiesSet() throws Exception {
 		
 	}
 
-	@Override
+//	@Override
 	public Object invoke(MethodInvocation invocation) throws Throwable {System.out.println("===============À¹½Ø==");
 		Object result = null;
 		try{
